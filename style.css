@@ -1,0 +1,893 @@
+/* --- BLADE RUNNER PORTFOLIO V1 --- 
+   Core Styles
+*/
+
+/* --- 1. Global Setup & Colors --- */
+:root {
+    --dark-base: #1d2228;   /* Dark, cold blue-gray (not pure black) */
+    --neon-teal: #00f0ff;    /* Our primary accent */
+    --light-text: #c1c1c1;   /* Not pure white, a bit softer */
+    --heading-text: #ffffff;
+}
+
+body {
+    background-color: var(--dark-base);
+    color: var(--light-text);
+    font-family: 'Roboto Mono', monospace; /* Monospaced font for that "tech" feel */
+    margin: 0;
+    padding: 0;
+    
+    /* Optional: Add a subtle texture like the film */
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RTRBMkFBNjU5RjYyMTFFNkFEN0VDQUQyN0E5RjU4QjEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RTRBMkFBNjY5RjYyMTFFNkFEN0VDQUQyN0E5RjU4QjEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpFNEEyQUE2MzlGNjIxMUU2QUQ3RUNBRDI3QTlGNTdCMSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpFNEEyQUE2NDlGNjIxMUU2QUQ3RUNBRDI3QTlGNTdCMSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wTWV0YT4gPD94cGFja2V0IGVuZD0iciI/PhYfQ0kAAABVSURBVHja7NCoCQBACADB1PUP9v8+SOp2dEBEpg2pURyHD2T8y3y/wJV95m+f9lX/EAAwYcAYMGAcGDAGDBgHxgwYMA4MGAPGDBgwDgyYAYMGAf8FGADFQAQoWCiGAAAAAElFTkSuQmCC');
+    cursor: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%229%22%20stroke%3D%22%2300f0ff%22%20stroke-width%3D%221%22%2F%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%221%22%20fill%3D%22%2300f0ff%22%2F%3E%3C%2Fsvg%3E') 10 10, auto;
+}
+
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif; /* Wide, futuristic heading font */
+    color: var(--heading-text);
+    text-transform: uppercase;
+}
+
+/* --- 2. The "Joi" Glass Navigation --- */
+.glass-nav {
+    position: fixed; /* Sticks to the top */
+    top: 0;
+    width: 100%;
+    padding: 20px 5%;
+    box-sizing: border-box; /* Makes padding work nicely */
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* THE GLASS EFFECT */
+    background: rgba(29, 34, 40, 0.25); /* 25% transparent background */
+    backdrop-filter: blur(10px);        /* This creates the frost! */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle edge */
+    z-index: 100;
+}
+
+.logo-name {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--neon-teal); /* Neon logo */
+    position: relative;
+}
+
+.desktop-nav a {
+    color: var(--light-text);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.glass-nav nav a:hover {
+    color: var(--neon-teal); /* Glow on hover */
+    text-shadow: 0 0 10px var(--neon-teal);
+}
+
+/* --- 3. Hero Section (for spacing) --- */
+/* --- 3. Hero Section (for spacing) --- */
+#hero {
+    min-height: 500px; /* A bit taller */
+    display: flex;
+    align-items: center;
+    /* Increased left padding to make room for the v-line */
+    padding-left: 10%; 
+    padding-top: 150px; /* Push content below the fixed nav */
+    position: relative; /* Needed for animations */
+    overflow: hidden; /* Good practice */
+}
+
+#hero h2 {
+    font-size: 2.5rem;
+    max-width: 600px;
+}
+
+/* --- 4. Project Section (Placeholder) --- */
+#projects {
+    padding: 50px 10%;
+}
+:root {
+    --dark-base: #1d2228;   
+    --neon-teal: #00f0ff;    
+    --light-text: #c1c1c1;   
+    --heading-text: #ffffff;
+    --neon-magenta: #ff00ff; /* <-- ADD THIS LINE */
+}
+/* --- 5. GLITCH TEXT EFFECT --- */
+
+.logo-name::before,
+.logo-name::after {
+    content: attr(data-text); /* Copies the text from our HTML data-text */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* The first "ghost" (Cyan) */
+.logo-name::before {
+    left: 2px;
+    color: var(--neon-teal);
+    animation: glitch-1 2s infinite linear alternate-reverse;
+}
+
+/* The second "ghost" (Magenta) */
+.logo-name::after {
+    left: -2px;
+    color: var(--neon-magenta);
+    animation: glitch-2 3s infinite linear alternate-reverse;
+}
+
+
+/* Glitch Animation 1 (moves and clips the cyan) */
+@keyframes glitch-1 {
+    0% {
+        clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%);
+        transform: translate(0, 0);
+    }
+    10% {
+        clip-path: polygon(0 15%, 100% 15%, 100% 35%, 0 35%);
+    }
+    30% {
+        clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+        transform: translate(-1px, 1px);
+    }
+    50% {
+        clip-path: polygon(0 25%, 100% 25%, 100% 55%, 0 55%);
+        transform: translate(1px, -1px);
+    }
+    70% {
+        clip-path: polygon(0 80%, 100% 80%, 100% 100%, 0 100%);
+    }
+    90% {
+        clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%);
+        transform: translate(0, 0);
+    }
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+/* Glitch Animation 2 (moves and clips the magenta) */
+@keyframes glitch-2 {
+    0% {
+        clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+        transform: translate(0, 0);
+    }
+    20% {
+        clip-path: polygon(0 10%, 100% 10%, 100% 25%, 0 25%);
+        transform: translate(1px, 0);
+    }
+    40% {
+        clip-path: polygon(0 50%, 100% 50%, 100% 70%, 0 70%);
+        transform: translate(-1px, 1px);
+    }
+    60% {
+        clip-path: polygon(0 30%, 100% 30%, 100% 40%, 0 40%);
+        transform: translate(1px, -1px);
+    }
+    80% {
+        clip-path: polygon(0 75%, 100% 75%, 100% 90%, 0 90%);
+    }
+    100% {
+        clip-path: polygon(0 40%, 100% 40%, 100% 60%, 0 60%);
+        transform: translate(0, 0);
+    }
+}
+/* --- 6. CASE FILES (Project Grid) --- */
+
+.project-grid {
+    display: grid;
+    /* This is a responsive grid. It will fit as many 300px (minimum)
+      cards as it can, then distribute the space. On mobile, it
+      will automatically become a single column.
+    */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 450px));
+    gap: 2rem; /* The space between cards */
+    justify-content: center; /* Centers the grid within the container */
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.05); /* Lifts the card from the background */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    overflow: hidden; /* Ensures the image doesn't break the card shape */
+    
+    /* This is for our hover animation */
+    transition: all 0.3s ease-out;
+}
+
+.project-card img {
+    width: 100%;
+    display: block;
+    opacity: 0.7; /* Desaturates the image to fit the mood */
+    transition: opacity 0.3s ease-out;
+}
+
+.card-info {
+    padding: 1.5rem;
+}
+
+.card-category {
+    font-family: 'Orbitron', sans-serif; /* Our heading font */
+    font-size: 0.8rem;
+    color: var(--neon-teal);
+    text-transform: uppercase;
+}
+
+.card-info h4 {
+    color: var(--heading-text);
+    margin: 0.5rem 0;
+    font-size: 1.25rem;
+}
+
+.card-info p {
+    color: var(--light-text);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* --- THE NEON HOVER EFFECT --- */
+.project-card:hover {
+    transform: translateY(-5px); /* Lifts the card up */
+    border-color: var(--neon-teal);
+    box-shadow: 0 0 20px -5px var(--neon-teal);
+}
+
+.project-card:hover img {
+    opacity: 1; /* Makes the image sharp and clear on hover */
+}
+/* --- 7. PROFILE (About Me) --- */
+
+#about {
+    padding: 50px 10%;
+    /* Add a subtle top border to separate it from the projects */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+.about-container {
+    display: grid;
+    /* This creates our two columns. 2fr = 2 parts, 1fr = 1 part */
+    grid-template-columns: 2fr 1fr; 
+    gap: 3rem; /* Space between the text and the skill list */
+    max-width: 1200px; /* Keeps it from getting too wide on large screens */
+    margin: 0 auto;
+}
+
+.profile-text h3 {
+    margin-top: 0;
+}
+
+.profile-text p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--light-text);
+}
+
+/* This is the skill list */
+.profile-data h4 {
+    color: var(--light-text);
+}
+
+.profile-data ul {
+    list-style: none; /* Removes default bullet points */
+    padding-left: 0;
+    margin: 0;
+}
+
+.profile-data li {
+    font-family: 'Roboto Mono', monospace; /* Use our tech font */
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 25px; /* Make space for our custom 'bullet' */
+}
+
+/* This creates the neon '//' data marker */
+.profile-data li::before {
+    content: '//';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--neon-teal);
+    font-weight: bold;
+}
+
+/* --- Responsive adjustments for mobile --- */
+@media (max-width: 768px) {
+    .about-container {
+        /* On small screens, stack to a single column */
+        grid-template-columns: 1fr; 
+    }
+}
+/* --- 8. INITIATE CONTACT --- */
+
+#contact {
+    padding: 80px 10%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center; /* Center-align all the content */
+}
+
+#contact p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 600px; /* Keep the paragraph from getting too wide */
+    margin: 1rem auto; /* Center the paragraph block */
+}
+
+.cta-button {
+    /* --- The Button Styling --- */
+    display: inline-block; /* Allows us to set padding */
+    margin-top: 2rem;
+    padding: 15px 30px;
+    
+    /* --- The Look --- */
+    font-family: 'Orbitron', sans-serif; /* Our heading font */
+    font-size: 1rem;
+    color: var(--neon-teal);
+    text-decoration: none;
+    text-transform: uppercase;
+    
+    background-color: transparent;
+    border: 2px solid var(--neon-teal);
+    
+    /* --- The Animation --- */
+    transition: all 0.3s ease-out;
+}
+
+.cta-button:hover {
+    background-color: var(--neon-teal);
+    color: var(--dark-base); /* Invert colors on hover */
+    box-shadow: 0 0 25px 0px var(--neon-teal);
+    transform: translateY(-3px);
+}
+
+/* --- 9. FOOTER --- */
+footer {
+    padding: 30px 5%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2); /* A slightly darker base */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: var(--light-text);
+}
+/* --- 10. VERTICAL STATUS BAR --- */
+.v-line {
+    position: fixed; /* Stays in place */
+    top: 0;
+    left: 5%; /* Aligns with your main content padding */
+    height: 100vh; /* Full viewport height */
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 99; /* Below nav but above background */
+    
+    /* This part positions the text */
+    display: flex;
+    align-items: flex-end;
+}
+
+.v-line span {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--light-text);
+    letter-spacing: 2px;
+    
+    /* This makes the text vertical */
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    
+    padding-bottom: 2rem; /* Space from the bottom edge */
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+/* --- 11. HERO TEXT ANIMATION --- */
+.hero-title {
+    font-size: 3rem; /* Make it bigger */
+    line-height: 1.3;
+    color: var(--heading-text);
+    
+    /* This calls our new animation */
+    animation: text-flicker-in 1.5s ease-in;
+}
+
+/* This is the animation itself */
+@keyframes text-flicker-in {
+    0% {
+        opacity: 0;
+        /* Start with a glow */
+        text-shadow: 0 0 20px var(--neon-teal);
+    }
+    30% {
+        opacity: 1;
+        text-shadow: none;
+    }
+    40% {
+        opacity: 0.3; /* A quick flicker */
+        text-shadow: 0 0 10px var(--neon-teal);
+    }
+    50% {
+        opacity: 1;
+        text-shadow: none;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/* --- 12. CUSTOM CURSOR (Interactive) --- */
+
+/* Target all clickable elements */
+a:hover,
+.project-card:hover,
+.cta-button:hover {
+    /* This creates a solid magenta "target" dot */
+    cursor: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%225%22%20fill%3D%22%23ff00ff%22%2F%3E%3C%2Fsvg%3E') 10 10, auto;
+}
+/* --- 13. SCROLL-TRIGGERED ANIMATIONS --- */
+
+/* This is the "hidden" state before it's on-screen */
+.animate-on-scroll {
+    opacity: 0; /* Start fully transparent */
+    
+    /* Start 20px lower than its final position */
+    transform: translateY(20px); 
+    
+    /* This defines the animation timing */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* We'll use JavaScript to add the "is-visible" class 
+  when the element scrolls into view.
+*/
+.animate-on-scroll.is-visible {
+    opacity: 1; /* Fade it in */
+    transform: translateY(0); /* Move it up to its final position */
+}
+/* --- 14. 3D WIREFRAME CANVAS --- */
+
+#bg-wireframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Sits BEHIND the hero text */
+    opacity: 0.3; /* Make it subtle, not distracting */
+}
+
+/* We need to make sure the hero text (z-index: 1)
+   sits on top of the canvas (z-index: -1) 
+*/
+.hero-title {
+    position: relative; /* Make z-index work */
+    z-index: 1;
+}
+/* --- 15. RESPONSIVE & ACCESSIBILITY FIXES --- */
+
+/* Media Query: This code ONLY runs on screens 
+  768px wide or smaller (i.e., tablets and phones) 
+*/
+@media (max-width: 768px) {
+
+    /* 1. Hide the vertical line */
+    .v-line {
+        display: none;
+    }
+
+    /* 2. Fix the content padding */
+    /* Since the line is gone, we can reset our content 
+       padding back to 5% so it fills the screen better.
+    */
+    #hero,
+    #projects,
+    #about,
+    #contact {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+/* Accessibility Fix: Add visible focus styles 
+  for keyboard navigation.
+*/
+
+/* --- Navigation Links --- */
+.glass-nav nav a:focus {
+    color: var(--neon-teal);
+    text-shadow: 0 0 10px var(--neon-teal);
+    outline: 2px solid var(--neon-teal); /* Add a clear outline */
+    outline-offset: 5px; /* Give it space */
+}
+
+/* --- Project Cards --- */
+.project-card:focus {
+    transform: translateY(-5px);
+    border-color: var(--neon-teal);
+    box-shadow: 0 0 20px -5px var(--neon-teal);
+    outline: none; /* The border/shadow is enough */
+}
+
+/* --- Contact Button --- */
+.cta-button:focus {
+    background-color: var(--neon-teal);
+    color: var(--dark-base);
+    box-shadow: 0 0 25px 0px var(--neon-teal);
+    transform: translateY(-3px);
+    outline: 2px solid var(--neon-teal); /* Add a clear outline */
+    outline-offset: 5px;
+}
+/* --- 15. RESPONSIVE & ACCESSIBILITY FIXES --- */
+
+/* Media Query: This code ONLY runs on screens 
+  768px wide or smaller (i.e., tablets and phones) 
+*/
+@media (max-width: 768px) {
+
+    /* 1. Hide the vertical line */
+    .v-line {
+        display: none;
+    }
+
+    /* 2. Fix the content padding */
+    /* Since the line is gone, we can reset our content 
+       padding back to 5% so it fills the screen better.
+    */
+    #hero,
+    #projects,
+    #about,
+    #contact {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+/* --- 16. MOBILE NAVIGATION STYLES --- */
+
+/* By default, hide the mobile-only elements on desktop */
+.hamburger-btn,
+#mobile-nav,
+.close-btn {
+    display: none;
+}
+
+/* --- Now, styles for mobile screens --- */
+@media (max-width: 768px) {
+    
+    /* 1. Performance & Hero Text */
+
+    /* Hide the 3D background to save battery/performance */
+    #bg-wireframe {
+        display: none;
+    }
+
+    /* Resize the hero title for mobile */
+    .hero-title {
+        font-size: 2.2rem; /* Smaller, punchier size */
+        line-height: 1.4;
+    }
+
+    /* 2. Navigation */
+    
+    /* Hide the desktop nav links */
+    .desktop-nav {
+        display: none;
+    }
+
+    /* Show and style the hamburger button */
+    .hamburger-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 101; /* Above the glass nav */
+    }
+
+    .hamburger-btn span {
+        width: 100%;
+        height: 3px;
+        background-color: var(--heading-text);
+        border-radius: 2px;
+    }
+    
+    /* Style the full-screen overlay (hidden by default) */
+    #mobile-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(29, 34, 40, 0.9); /* Dark, but not 100% black */
+        
+        /* The "Joi" glass effect */
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        /* Hide it off-screen */
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 1000;
+    }
+
+    /* The "active" state (shown) */
+    #mobile-nav.is-active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Style the links inside the overlay */
+    #mobile-nav nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #mobile-nav nav a {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.8rem;
+        color: var(--heading-text);
+        text-decoration: none;
+        padding: 20px;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: opacity 0.3s ease 0.2s, transform 0.3s ease 0.2s;
+    }
+
+    /* Animate links fading in when active */
+    #mobile-nav.is-active nav a {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    #mobile-nav nav a:hover,
+    #mobile-nav nav a:focus {
+        color: var(--neon-teal);
+        text-shadow: 0 0 10px var(--neon-teal);
+    }
+
+    /* Style the "Close" (X) button */
+    .close-btn {
+        display: block;
+        position: absolute;
+        top: 30px;
+        right: 5%;
+        background: transparent;
+        border: none;
+        color: var(--heading-text);
+        font-size: 3rem;
+        font-weight: 300;
+        cursor: pointer;
+        z-index: 1001;
+    }
+}
+/* --- 8. INITIATE CONTACT (Form Styles) --- */
+
+/* This overrides the text-align:center from the #contact section */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px; /* Match the <p> tag */
+    margin: 2rem auto 0 auto; /* Center the form block */
+    text-align: left; /* Align labels to the left */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    color: var(--light-text);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+/* Style for text boxes and text area */
+.form-group input,
+.form-group textarea {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.2); /* Dark, transparent bg */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--heading-text);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    resize: vertical; /* Allow textarea to be resized vertically */
+}
+
+/* The NEON FOCUS effect for inputs */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--neon-teal);
+    box-shadow: 0 0 15px -2px var(--neon-teal);
+}
+
+/* --- Tweak the CTA Button for the form --- */
+
+/* Find your existing .cta-button style (around line 236) */
+/* It should look like this: */
+.cta-button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 15px 30px;
+    /* ... other styles ... */
+    border: 2px solid var(--neon-teal);
+    transition: all 0.3s ease-out;
+}
+
+/* ADD THIS *NEW* BLOCK AFTER IT to style the <button> version */
+.contact-form .cta-button {
+    width: 100%; /* Make the button full-width */
+    margin-top: 1rem; /* Adjust spacing */
+    cursor: url('data:image/svg+xml,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%225%22%20fill%3D%22%23ff00ff%22%2F%3E%3C%2Fsvg%3E') 10 10, auto;
+}
+/* --------------------------------------------------
+   Hub & Resource page styles (migrated from inline)
+   These were moved here so `cs_hub.html` and
+   `kenha_case_file.html` can simply link to style.css
+-------------------------------------------------- */
+
+/* Header used on hub / case pages */
+.hub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+}
+
+.hub-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--neon-teal);
+}
+
+.back-link {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--light-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border: 1px solid var(--light-text);
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover,
+.back-link:focus {
+    color: var(--dark-base);
+    background-color: var(--neon-teal);
+    border-color: var(--neon-teal);
+    box-shadow: 0 0 15px var(--neon-teal);
+    outline: none;
+}
+
+/* Resource grid (cs_hub) */
+.resource-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.resource-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    padding: 25px;
+    transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+     border-color: var(--neon-teal);
+     box-shadow: 0 0 20px -5px var(--neon-teal);
+}
+
+.resource-card h3 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--neon-teal);
+    padding-bottom: 10px;
+}
+
+.resource-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.resource-card li {
+    margin-bottom: 15px;
+}
+
+.resource-card a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-size: 1.1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.resource-card a:hover,
+.resource-card a:focus {
+    color: var(--neon-teal);
+    padding-left: 10px;
+    outline: none;
+}
+
+.resource-card a::before {
+    content: '//';
+    position: absolute;
+    left: -15px;
+    top: 0;
+    color: var(--neon-teal);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.resource-card a:hover::before,
+.resource-card a:focus::before {
+    opacity: 1;
+    left: -5px;
+}
+
+.resource-card span {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+/* Case file (kenha) brief and logs */
+.project-brief {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 40px;
+}
+
+.brief-text h2 { margin-top: 0; }
+.brief-text p { font-size: 1rem; line-height: 1.7; }
+
+.brief-stats {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 25px;
+}
+
+.brief-stats h3 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--neon-teal);
+    padding-bottom: 10px;
+}
+
+.brief-stats ul { list-style: none; padding: 0; margin: 0; }
+.brief-stats li { font-size: 0.9rem; margin-bottom: 10px; position: relative; padding-left: 20px; }
+.brief-stats li::before { content: '//'; position: absolute; left: 0; color: var(--neon-teal); }
+
+.logs-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+
+.data-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); padding: 25px; }
+.data-card h3 { margin-top: 0; color: var(--neon-teal); }
+.data-card ul { list-style: none; padding: 0; margin: 0; }
+.data-card li { position: relative; padding-left: 20px; margin-bottom: 12px; font-size: 0.95rem; }
+.data-card li::before { content: '>'; position: absolute; left: 0; color: var(--neon-magenta); font-weight: bold; }
+
+@media (max-width: 768px) {
+    .project-brief { grid-template-columns: 1fr; }
+}
